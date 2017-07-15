@@ -369,7 +369,7 @@ int playCard(int handPos, int choice1, int choice2, int choice3, struct gameStat
   //check if it is the right phase
   if (state->phase != 0)
     {
-      return -1;
+      return -2;
     }
 
   //check if player has enough actions
