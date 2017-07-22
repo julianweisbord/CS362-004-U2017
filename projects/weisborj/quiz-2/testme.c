@@ -15,12 +15,12 @@ char inputChar()
 char *inputString()
 {
     int size = 5;
-    int n;
+    size_t n;
     char *str = malloc(size + 1);
     const char charset[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJK...";
     if (size) {
         --size;
-        for (size_t n = 0; n < size; n++) {
+        for (n = 0; n < size; n++) {
             int key = rand() % (int) (sizeof charset - 1);
             str[n] = charset[key];
         }
