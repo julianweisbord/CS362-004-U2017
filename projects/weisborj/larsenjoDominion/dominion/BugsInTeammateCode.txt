@@ -1,0 +1,14 @@
+BUG 1: I found this bug within larsenjo’s dominion.c implementation (larsenjo-assignment-4).
+The bug is on line 701 within the function smith() which is called by  cardEffect().
+The card “smithy”, once bought is supposed to draw 3 cards and then be discarded.
+However in smith(), the for loop runs 4 times and calls drawCard() 4 times before discarding Smithy.
+I found this bug while refactoring my tests to work with larsenjo’s implementation.
+I would recommend changing line 701 to “for (i = 0; i < 3; i++)”
+BUG 2: The second bug that I found was in the advent() function of dominion.c.
+This function is supposed to accurately implement the adventurer card.
+When Adventurer is played, you reveal cards from the top of your deck until you reveal 2 treasure cards and then the rest of the cards are discarded.
+However in advent(), the function incorrectly reveals cards until 4 treasure cards are revealed not 2.
+I found this bug while running my “randomtestcard1.c” which tests Adventurer.
+Inside check_adventurer_effect, my test breaks after 2 treasurer cards are revealed however my test makes the player play adventurer which will call advent(),
+then the person will draw 4 treasure cards so when I compare states, it will seg fault.
+I would recommend changing line 665 to “while(drawntreasure<4).”
